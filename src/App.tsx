@@ -1,7 +1,7 @@
 import './App.css'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Login from './form/Login'
-import Signup from './form/Signup'
+import Signup from './form/Register'
 import { Toaster } from 'react-hot-toast'
 import Dashboard from './pages/DashBoard'
 

@@ -1,15 +1,8 @@
-import {
-  AppBar,
-  Box,
-  Button,
-  IconButton,
-  Toolbar,
-  Typography,
-} from "@mui/material";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import api from "../api/axiosClient";
 import LoginRegisterButtons from "../components/LoginRegisterButtons";
+import logo from "../assets/sarusara-logo.png"
 
 const Header = () => {
   const [user, setUser] = useState("");
@@ -33,65 +26,39 @@ const Header = () => {
   }, []);
 
   return (
-    <AppBar position="static" sx={{ backgroundColor: "#167A00" }}>
-      <Toolbar>
-        {/* Left: Logo or menu icon */}
-        <IconButton
-          edge="start"
-          color="inherit"
-          sx={{
-            marginRight: "20px",
-          }}
+    <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center bg-green-700 text-gray-200">
+      {/* Left Logo or Menu */}
+      <img src={logo} className="mr-6 font-bold h-[45px] rounded-[50%]"/>
+
+      {/* Title */}
+      <h1 className="text-lg font-semibold flex-grow">Sarusara Agro</h1>
+
+      {/* Center Links */}
+      <div className="flex gap-6 flex-grow">
+        <Link
+          to="/products"
+          className="px-3 py-2 rounded-md text-[16px] hover:bg-[#0F4F00] transition"
         >
-          fvdf
-        </IconButton>
+          Products
+        </Link>
 
-        <Typography variant="h6" sx={{ flexGrow: 1 }}>
-          Sarusara Agro
-        </Typography>
+        <Link
+          to="/advertisement"
+          className="px-3 py-2 rounded-md text-[16px] hover:bg-[#0F4F00] transition"
+        >
+          Advertisement
+        </Link>
+      </div>
 
-        <Box sx={{ display: "flex", gap: 3, flexGrow: 1 }}>
-          <Button
-            color="inherit"
-            component={Link}
-            to="/products"
-            sx={{
-              textTransform: "capitalize",
-              fontSize: "16px",
-              "&:hover": {
-                backgroundColor: "#0F4F00", // hover color
-              },
-            }}
-          >
-            Products
-          </Button>
-          <Button
-            color="inherit"
-            component={Link}
-            to="/advertisement"
-            sx={{
-              textTransform: "capitalize",
-              fontSize: "16px",
-              "&:hover": {
-                backgroundColor: "#0F4F00", // hover color
-              },
-            }}
-          >
-            Advertisement
-          </Button>
-        </Box>
-
-        <Box sx={{ display: "flex", gap: 2 }}>
-          {
-            user === "" ? (
-              <LoginRegisterButtons />
-            ) : (
-              <Typography variant="subtitle1">{user}</Typography>
-            ) // logged user show the user name
-          }
-        </Box>
-      </Toolbar>
-    </AppBar>
+      {/* Right Side User / Login Btns */}
+      <div className="flex gap-4 items-center">
+        {user === "" ? (
+          <LoginRegisterButtons />
+        ) : (
+          <span className="text-sm">{user}</span>
+        )}
+      </div>
+    </nav>
   );
 };
 
