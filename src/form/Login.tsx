@@ -1,8 +1,8 @@
-import { Button, Card, CardContent, TextField, Typography } from "@mui/material";
 import { useState } from "react";
 import toast from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
 import api from "../api/axiosClient";
+import logo from "../assets/sarusara-logo.png";
 
 const Login = () => {
 
@@ -33,93 +33,90 @@ const Login = () => {
       className="min-h-screen w-full flex items-center justify-end
                  bg-[url('./assets/paddy.jpg')] bg-cover bg-center bg-fixed"
     >
+      <div className="flex min-h-full flex-col justify-center px-8 py-12 lg:px-8 mr-[200px] text-green-900 bg-white/10 shadow-lg rounded-xl backdrop-blur-sm pl-10">
+        <div className="sm:mx-auto sm:w-full sm:max-w-sm">
+          <img
+            alt="Sarusara agro"
+            src={logo}
+            className="mx-auto h-20 w-auto rounded-[50%]"
+          />
+          <h2 className="mt-10 text-center text-2xl/9 font-bold tracking-tight text-green-900">
+            Sign in to your account
+          </h2>
+        </div>
 
-      {/* Login Card */}
-      <Card
-  sx={{
-    backgroundColor: "rgba(255, 255, 255, 0.3)", // semi-transparent
-    backdropFilter: "blur(2px)", // blur
-    height: "80%",
-    width: { xs: "90%", md: "30%" },
-    margin: 2,
-    borderRadius: "1.5rem",
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    boxShadow: "0 8px 32px rgba(0, 0, 0, 0.25)",
-    border: "1px solid rgba(255, 255, 255, 0.2)",
-    minWidth:"400px",
-    minHeight:"400px",
-    marginRight:"100px"
-  }}
->
-  <CardContent className="flex flex-col items-center w-full">
-    <Typography variant="h4" sx={{
-      marginBottom:"20px",
-      color:"#167A00",
-      fontWeight:"Bold"
-    }}>
-      Login
-    </Typography>
+        <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+          <form onSubmit={handleLogin} method="POST" className="space-y-6">
+            <div>
+              <label htmlFor="email" className="block text-sm/6 font-medium">
+                Email address
+              </label>
+              <div className="mt-2">
+                <input
+                  id="username"
+                  name="username"
+                  type="username"
+                  required
+                  autoComplete="username"
+                  onChange={(e) => setUsername(e.target.value)}
+                  className="block w-full rounded-md bg-white/5 px-3 py-1.5 text-base text-white outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-green-900 sm:text-sm/6"
+                />
+              </div>
+            </div>
 
-    <TextField
-      fullWidth
-      label="Username"
-      variant="outlined"
-      value={username}
-      onChange={(e) => setUsername(e.target.value)}
-      className="mb-5"
-      required
-      sx={{
-        marginBottom:"20px",
-        color:"#167A00"
-      }
-      }
-    />
+            <div>
+              <div className="flex items-center justify-between">
+                <label
+                  htmlFor="password"
+                  className="block text-sm/6 font-medium"
+                >
+                  Password
+                </label>
+                <div className="text-sm">
+                  <a
+                    href="#"
+                    className="font-semibold text-grey-400 hover:text-green-700"
+                  >
+                    Forgot password?
+                  </a>
+                </div>
+              </div>
+              <div className="mt-2">
+                <input
+                  id="password"
+                  name="password"
+                  type="password"
+                  required
+                  autoComplete="current-password"
+                  onChange={(e) => setPassword(e.target.value)}
+                  className="block w-full rounded-md bg-white/5 px-3 py-1.5 text-base text-white outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-green-900 sm:text-sm/6"
+                />
+              </div>
+            </div>
 
-    <TextField
-      fullWidth
-      label="Password"
-      type="password"
-      variant="outlined"
-      value={password}
-      onChange={(e) => setPassword(e.target.value)}
-      className="mb-5"
-      sx={{
-        marginBottom:"20px",
-        color:"#167A00"
-      }}
-      required
-    />
+            <div>
+              <button
+                type="submit"
+                className="flex w-full justify-center rounded-md bg-green-900 px-3 py-1.5 text-sm/6 font-semibold text-white hover:bg-green-800 cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
+              >
+                Sign in
+              </button>
+            </div>
+          </form>
 
-    <Button
-      fullWidth
-      variant="contained"
-      color="primary"
-      className="mt-10"
-      onClick={handleLogin}
-      sx={{
-        marginBottom: "20px",
-        background:"#167A00",
-        boxShadow:"20px"
-      }}
-    >
-      Login
-    </Button>
-
-    {/* Register Link */}
-    <Typography variant="body2" className="mt-6">
-      If you don't have an account, please{" "}
-      <Link to="/register" className="text-blue-700 underline">
-        Register
-      </Link>
-    </Typography>
-  </CardContent>
-</Card>
-
+          <p className="mt-10 text-center text-sm/6 text-gray-800">
+            If don't you have an account please{" "}
+            <Link
+              to="/register"
+              className="font-semibold text-white hover:text-indigo-300"
+            >
+              Register
+            </Link>
+          </p>
+        </div>
+      </div>
     </div>
-
-  )
+  );
 }
 
 export default Login
