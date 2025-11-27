@@ -10,17 +10,19 @@ const Login = () => {
   const[password, setPassword] = useState("");
   const navigate = useNavigate();
 
-  let handleLogin = async () => {
+  let handleLogin = async (e:any) => {
+
+    e.preventDefault();
     try {
 
       const res = await api.post("/api/user/login",{
         username,
         password
       },{ withCredentials: true } )
-
-      navigate("/")
       
       console.log(res);
+
+      navigate("/")
 
       toast.success("Login successful...");
     } catch (err) {
