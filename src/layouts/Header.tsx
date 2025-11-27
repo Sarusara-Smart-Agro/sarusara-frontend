@@ -26,7 +26,7 @@ const Header = () => {
   }, []);
 
   return (
-    <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center bg-green-700 text-gray-200">
+    <nav className="max-w-screen mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center bg-green-700 text-gray-200">
       {/* Left Logo or Menu */}
       <img src={logo} className="mr-6 font-bold h-[45px] rounded-[50%]"/>
 

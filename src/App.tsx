@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Login from './form/Login'
 import Signup from './form/Register'
 import { Toaster } from 'react-hot-toast'
-import Dashboard from './pages/DashBoard'
+import Dashboard from './pages/Dashboard'
 
 function App() {
 
