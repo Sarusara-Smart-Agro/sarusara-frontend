@@ -30,8 +30,7 @@ const Register = () => {
         withCredentials: true,
       });
 
-      toast.success("Registration successful!");
-      navigate("/login");
+      navigate("/verify-otp", { state: { email: formData.email } });
       console.log(res);
     } catch (err) {
       console.log(err);
