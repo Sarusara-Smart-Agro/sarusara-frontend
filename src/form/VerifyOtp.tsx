@@ -40,14 +40,44 @@ const VerifyOtp = () => {
   };
 
   return (
-    <div className="p-10">
-      <h2>Verify Email</h2>
-      <p>OTP sent to: {email}</p>
+    <div className="min-h-screen flex items-center justify-center bg-green-50">
+      <div className="bg-white p-10 rounded-xl shadow-lg w-full max-w-md border border-green-200">
+        <h2 className="text-2xl font-bold text-green-900 text-center mb-2">
+          Verify Email
+        </h2>
 
-      <input placeholder="Enter OTP" onChange={(e) => setOtp(e.target.value)} />
-      <button onClick={handleVerify}>Verify</button>
+        <p className="text-center text-green-700 mb-6">
+          OTP sent to: <span className="font-semibold">{email}</span>
+        </p>
 
-      <button onClick={handleResend}>Resend OTP</button>
+        {/* OTP INPUT */}
+        <input
+          placeholder="Enter OTP"
+          onChange={(e) => setOtp(e.target.value)}
+          className="w-full px-4 py-3 mb-5 rounded-lg border border-green-300 
+                 focus:outline-none focus:ring-2 focus:ring-green-700 
+                 text-green-900 placeholder-green-700/60"
+        />
+
+        {/* VERIFY BUTTON */}
+        <button
+          onClick={handleVerify}
+          className="w-full bg-green-900 text-white py-3 rounded-lg font-semibold
+                 hover:bg-green-800 transition duration-200 shadow-md"
+        >
+          Verify
+        </button>
+
+        {/* RESEND BUTTON */}
+        <button
+          onClick={handleResend}
+          className="w-full mt-4 bg-green-100 text-green-900 py-3 rounded-lg 
+                 font-semibold hover:bg-green-200 transition duration-200
+                 border border-green-300"
+        >
+          Resend OTP
+        </button>
+      </div>
     </div>
   );
 };
