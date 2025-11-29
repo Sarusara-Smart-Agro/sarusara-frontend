@@ -140,35 +140,39 @@ const Register = () => {
               />
             </div>
 
-            {/* Phone Number */}
-            <div>
-              <label className="block text-sm font-medium">Phone Number</label>
-              <input
-                type="text"
-                required
-                className="mt-1 block w-full h-10 rounded-md bg-white/5 px-3 py-1 text-emerald-900 
+            <div className="flex">
+              {/* Phone Number */}
+              <div className="mr-1.5">
+                <label className="block text-sm font-medium">
+                  Phone Number
+                </label>
+                <input
+                  type="text"
+                  required
+                  className="mt-1 block w-full h-10 rounded-md bg-white/5 px-3 py-1 text-emerald-900 
                            outline-1 outline-white/10 placeholder:text-gray-500
                            focus:outline-2 focus:outline-green-900 border-1 border-green-700"
-                onChange={(e) =>
-                  setFormData({ ...formData, phoneNo: e.target.value })
-                }
-              />
-            </div>
+                  onChange={(e) =>
+                    setFormData({ ...formData, phoneNo: e.target.value })
+                  }
+                />
+              </div>
 
-            {/* Role */}
-            <div>
-              <label className="block text-sm font-medium">Select Role</label>
-              <select
-                className="mt-1 block w-full rounded-md bg-white/5 px-3 py-1.5 text-emerald-900 
+              {/* Role */}
+              <div className="ml-1.5">
+                <label className="block text-sm font-medium">Select Role</label>
+                <select
+                  className="mt-1 block w-full rounded-md bg-white/5 px-3 py-1.5 text-emerald-900 
                            outline-1 outline-white/10 focus:outline-2 focus:outline-green-900"
-                onChange={(e) =>
-                  setFormData({ ...formData, role: e.target.value })
-                }
-              >
-                <option value="Customer">Customer</option>
-                <option value="Farmer">Farmer</option>
-                <option value="Wholesaler">Wholesaler</option>
-              </select>
+                  onChange={(e) =>
+                    setFormData({ ...formData, role: e.target.value })
+                  }
+                >
+                  <option value="Customer">Customer</option>
+                  <option value="Farmer">Farmer</option>
+                  <option value="Wholesaler">Wholesaler</option>
+                </select>
+              </div>
             </div>
 
             {/* Button */}
