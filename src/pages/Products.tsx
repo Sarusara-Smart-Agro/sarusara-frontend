@@ -8,7 +8,7 @@ const Products = () => {
       name="Organic Tomatoes"
       price={450}
       description="Fresh organic tomatoes directly from local farmers."
-      onAddToCart={() => console.log("Added to cart!")}
+      onAddToCart={() => alert("add to cart")}
     />
   );
 }
